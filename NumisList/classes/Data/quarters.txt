@@ -1,0 +1,375 @@
+2020%P%null%false%American Samoa%
+2020%P%null%false%Weir Farm%
+2020%P%null%false%Salt River Bay%
+2020%P%null%false%Marsh-Billings-Rockefeller%
+2020%P%null%false%Tallgrass Prairie%
+2020%D%null%false%American Samoa%
+2020%D%null%false%Weir Farm%
+2020%D%null%false%Salt River Bay%
+2020%D%null%false%Marsh-Billings-Rockefeller%
+2020%D%null%false%Tallgrass Prairie%
+2019%P%null%true%Lowell%
+2019%P%null%true%American Memorial%
+2019%P%null%true%San Antonio Missions%
+2019%P%null%true%War in the Pacific%
+2019%P%null%true%Frank Church River of No Return%
+2019%D%null%true%Lowell%
+2019%D%null%true%American Memorial%
+2019%D%null%true%San Antonio Missions%
+2019%D%null%true%War in the Pacific%
+2019%D%null%true%Frank Church River of No Return%
+2018%P%null%true%Pictured Rocks%
+2018%P%null%true%Apostle Islands%
+2018%P%null%true%Voyageurs%
+2018%P%null%true%Block Island%
+2018%P%null%true%Cumberland Island%
+2018%D%null%true%Pictured Rocks%
+2018%D%null%true%Apostle Islands%
+2018%D%null%true%Voyageurs%
+2018%D%null%true%Block Island%
+2018%D%null%true%Cumberland Island%
+2017%P%null%true%Effigy Mounds%
+2017%P%null%true%Ellis Island%
+2017%P%null%true%Ozark Riverways%
+2017%P%null%true%Frederick Douglass%
+2017%P%null%true% George Rogers Clark%
+2017%D%null%true%Effigy Mounds%
+2017%D%null%true%Ellis Island%
+2017%D%null%true%Ozark Riverways%
+2017%D%null%true%Frederick Douglass%
+2017%D%null%true% George Rogers Clark%
+2016%P%null%true%Shawnee%
+2016%P%null%true%Cumberland Gap%
+2016%P%null%true%Theodore Roosevelt%
+2016%P%null%true%Harpers Ferry%
+2016%P%null%true%Fort Moultrie%
+2016%D%null%true%Shawnee%
+2016%D%null%true%Cumberland Gap%
+2016%D%null%true%Theodore Roosevelt%
+2016%D%null%true%Harpers Ferry%
+2016%D%null%true%Fort Moultrie%
+2015%P%null%true%Homestead%
+2015%P%null%true%Kisatchie%
+2015%P%null%true%Blue Ridge Parkway%
+2015%P%null%true%Bombay Hook%
+2015%P%null%true%Saratoga%
+2015%D%null%true%Homestead%
+2015%D%null%true%Kisatchie%
+2015%D%null%true%Blue Ridge Parkway%
+2015%D%null%true%Bombay Hook%
+2015%D%null%true%Saratoga%
+2014%P%null%true%Great Smoky Mtns%
+2014%P%null%true%Shenandoah%
+2014%P%null%true%Arches%
+2014%P%null%true%Great Sand Dunes%
+2014%P%null%true%Everglades%
+2014%D%null%true%Great Smoky Mtns%
+2014%D%null%true%Shenandoah%
+2014%D%null%true%Arches%
+2014%D%null%true%Great Sand Dunes%
+2014%D%null%true%Everglades%
+2013%P%null%true%White Mountain%
+2013%P%null%true%Perry's Memorial%
+2013%P%null%true%Great Basin%
+2013%P%null%true%Fort McHenry%
+2013%P%null%true%Mount Rushmore%
+2013%D%null%true%White Mountain%
+2013%D%null%true%Perry's Memorial%
+2013%D%null%true%Great Basin%
+2013%D%null%true%Fort McHenry%
+2013%D%null%true%Mount Rushmore%
+2012%P%null%true%El Yunque%
+2012%P%null%true%Chaco Culture%
+2012%P%null%true%Acadia%
+2012%P%null%true%Hawaii Volcanoes%
+2012%P%null%true%Denali%
+2012%D%null%true%El Yunque%
+2012%D%null%true%Chaco Culture%
+2012%D%null%true%Acadia%
+2012%D%null%true%Hawaii Volcanoes%
+2012%D%null%true%Denali%
+2011%P%null%true%Gettysburg%
+2011%P%null%true%Glacier%
+2011%P%null%true%Olympic%
+2011%P%null%true%Vicksburg%
+2011%P%null%true%Chickasaw%
+2011%D%null%true%Gettysburg%
+2011%D%null%true%Glacier%
+2011%D%null%true%Olympic%
+2011%D%null%true%Vicksburg%
+2011%D%null%true%Chickasaw%
+2010%P%null%true%Hot Springs%
+2010%P%null%true%Yellowstone%
+2010%P%null%true%Yosemite%
+2010%P%null%true%Grand Canyon%
+2010%P%null%true%Mount Hood%
+2010%D%null%true%Hot Springs%
+2010%D%null%true%Yellowstone%
+2010%D%null%true%Yosemite%
+2010%D%null%true%Grand Canyon%
+2010%D%null%true%Mount Hood%
+2009%P%null%true%District of Columbia%
+2009%P%null%true%Puerto Rico%
+2009%P%null%true%Guam%
+2009%P%null%true%American Samoa%
+2009%P%null%true%U.S. Virgin Islands%
+2009%P%null%true%Northern Mariana Islands%
+2009%D%null%true%District of Columbia%
+2009%D%null%true%Puerto Rico%
+2009%D%null%true%Guam%
+2009%D%null%true%American Samoa%
+2009%D%null%true%U.S. Virgin Islands%
+2009%D%null%true%Northern Mariana Islands%
+2008%P%null%true%Oklahoma%
+2008%P%null%true%New Mexico%
+2008%P%null%true%Arizona%
+2008%P%null%true%Alaska%
+2008%P%null%true%Hawaii%
+2008%D%null%true%Oklahoma%
+2008%D%null%true%New Mexico%
+2008%D%null%true%Arizona%
+2008%D%null%true%Alaska%
+2008%D%null%true%Hawaii%
+2007%P%null%true%Montana%
+2007%P%null%true%Washington%
+2007%P%null%true%Idaho%
+2007%P%null%true%Wyoming%
+2007%P%null%true%Utah%
+2007%D%null%true%Montana%
+2007%D%null%true%Washington%
+2007%D%null%true%Idaho%
+2007%D%null%true%Wyoming%
+2007%D%null%true%Utah%
+2006%P%null%true%Nevada%
+2006%P%null%true%Nebraska%
+2006%P%null%true%Colorado%
+2006%P%null%true%North Dakota%
+2006%P%null%true%South Dakota%
+2006%D%null%true%Nevada%
+2006%D%null%true%Nebraska%
+2006%D%null%true%Colorado%
+2006%D%null%true%North Dakota%
+2006%D%null%true%South Dakota%
+2005%P%null%true%California%
+2005%P%null%true%Minnesota%
+2005%P%null%true%Minnesota Extra Tree%
+2005%P%null%true%Oregon%
+2005%P%null%true%Kansas%
+2005%P%null%true%West Virginia%
+2005%D%null%true%California%
+2005%D%null%true%Minnesota%
+2005%D%null%true%Oregon%
+2005%D%null%true%Kansas%
+2005%D%null%true%West Virginia%
+2004%P%null%true%Michigan%
+2004%P%null%true%Florida%
+2004%P%null%true%Texas%
+2004%P%null%true%Iowa%
+2004%P%null%true%Wisconsin%
+2004%D%null%true%Michigan%
+2004%D%null%true%Florida%
+2004%D%null%true%Texas%
+2004%D%null%true%Iowa%
+2004%D%null%true%Wisconsin%
+2004%D%null%true%Wisconsin Extra Leaf Low%
+2004%D%null%true%Wisconsin Extra Leaf High%
+2003%P%null%true%Illinois%
+2003%P%null%true%Alabama%
+2003%P%null%true%Maine%
+2003%P%null%true%Missouri%
+2003%P%null%true%Arkansas%
+2003%D%null%true%Illinois%
+2003%D%null%true%Alabama%
+2003%D%null%true%Maine%
+2003%D%null%true%Missouri%
+2003%D%null%true%Arkansas%
+2002%P%null%true%Tennessee%
+2002%P%null%true%Ohio%
+2002%P%null%true%Louisiana%
+2002%P%null%true%Indiana%
+2002%P%null%true%Mississippi%
+2002%D%null%true%Tennessee%
+2002%D%null%true%Ohio%
+2002%D%null%true%Louisiana%
+2002%D%null%true%Indiana%
+2002%D%null%true%Mississippi%
+2001%P%null%true%New York%
+2001%P%null%true%North Carolina%
+2001%P%null%true%Rhode Island%
+2001%P%null%true%Vermont%
+2001%P%null%true%Kentucky%
+2001%D%null%true%New York%
+2001%D%null%true%North Carolina%
+2001%D%null%true%Rhode Island%
+2001%D%null%true%Vermont%
+2001%D%null%true%Kentucky%
+2000%P%null%true%Massachusetts%
+2000%P%null%true%Maryland%
+2000%P%null%true%South Carolina%
+2000%P%null%true%New Hampshire%
+2000%P%null%true%Virginia%
+2000%D%null%true%Massachusetts%
+2000%D%null%true%Maryland%
+2000%D%null%true%South Carolina%
+2000%D%null%true%New Hampshire%
+2000%D%null%true%Virginia%
+1999%P%null%true%Delaware%
+1999%P%null%true%Pennsylvania%
+1999%P%null%true%New Jersey%
+1999%P%null%true%Georgia%
+1999%P%null%true%Connecticut%
+1999%D%null%true%Delaware%
+1999%D%null%true%Pennsylvania%
+1999%D%null%true%New Jersey%
+1999%D%null%true%Georgia%
+1999%D%null%true%Connecticut%
+1998%P%null%true%null%
+1998%D%null%true%null%
+1997%P%null%true%null%
+1997%D%null%true%null%
+1996%P%null%true%null%
+1996%D%null%true%null%
+1995%P%null%true%null%
+1995%D%null%true%null%
+1994%P%null%true%null%
+1994%D%null%true%null%
+1993%P%null%true%null%
+1993%D%null%true%null%
+1992%P%null%true%null%
+1992%D%null%true%null%
+1991%P%null%true%null%
+1991%D%null%true%null%
+1990%P%null%true%null%
+1990%D%null%true%null%
+1989%P%null%true%null%
+1989%D%null%true%null%
+1988%P%null%true%null%
+1988%D%null%true%null%
+1987%P%null%true%null%
+1987%D%null%true%null%
+1986%P%null%true%null%
+1986%D%null%true%null%
+1985%P%null%true%null%
+1985%D%null%true%null%
+1984%P%null%true%null%
+1984%D%null%true%null%
+1983%P%null%true%null%
+1983%D%null%true%null%
+1982%P%null%true%null%
+1982%D%null%true%null%
+1981%P%null%true%null%
+1981%D%null%true%null%
+1980%P%null%true%null%
+1980%D%null%true%null%
+1979%P%null%true%null%
+1979%D%null%true%null%
+1978%P%null%true%null%
+1978%D%null%true%null%
+1977%P%null%true%null%
+1977%D%null%true%null%
+1976%P%null%true%null%
+1976%D%null%true%null%
+1976%S%null%true%null%
+1974%P%null%true%null%
+1974%D%null%true%null%
+1973%P%null%true%null%
+1973%D%null%false%null%
+1972%P%null%true%null%
+1972%D%null%true%null%
+1971%P%null%false%null%
+1971%D%null%false%null%
+1970%P%null%false%null%
+1970%D%null%true%null%
+1969%P%null%true%null%
+1969%D%null%true%null%
+1968%P%null%true%null%
+1968%D%null%true%null%
+1967%P%null%true%null%
+1966%P%null%true%null%
+1965%P%null%true%null%
+1964%P%null%true%null%
+1964%D%null%true%null%
+1963%P%null%false%null%
+1963%D%null%true%null%
+1962%P%null%false%null%
+1962%D%null%false%null%
+1961%P%null%true%null%
+1961%D%null%false%null%
+1960%P%null%false%null%
+1960%D%null%false%null%
+1959%P%null%false%null%
+1959%D%null%false%null%
+1958%P%null%false%null%
+1958%D%null%true%null%
+1957%P%null%false%null%
+1957%D%null%false%null%
+1956%P%null%false%null%
+1956%D%null%false%null%
+1955%P%null%false%null%
+1955%D%null%false%null%
+1954%P%null%false%null%
+1954%D%BU%true%null%
+1954%S%null%false%null%
+1953%P%null%false%null%
+1953%D%null%false%null%
+1953%S%null%false%null%
+1952%P%null%false%null%
+1952%D%null%false%null%
+1952%S%null%false%null%
+1951%P%null%false%null%
+1951%D%null%false%null%
+1951%S%null%false%null%
+1950%P%null%false%null%
+1950%D%null%false%null%
+1950%S%null%false%null%
+1949%P%null%false%null%
+1949%D%null%false%null%
+1948%P%null%false%null%
+1948%D%null%false%null%
+1948%S%null%false%null%
+1947%P%null%false%null%
+1947%D%null%true%null%
+1947%S%null%false%null%
+1946%P%null%false%null%
+1946%D%null%false%null%
+1946%S%null%false%null%
+1945%P%null%false%null%
+1945%D%null%false%null%
+1945%S%null%false%null%
+1944%P%null%false%null%
+1944%D%null%false%null%
+1944%S%null%false%null%
+1943%P%null%false%null%
+1943%D%null%false%null%
+1943%S%null%false%null%
+1942%P%null%true%null%
+1942%D%null%false%null%
+1942%S%null%false%null%
+1941%P%null%false%null%
+1941%D%null%false%null%
+1941%S%null%false%null%
+1940%P%null%false%null%
+1940%D%null%false%null%
+1940%S%null%false%null%
+1939%P%null%false%null%
+1939%D%null%false%null%
+1939%S%null%false%null%
+1938%P%null%false%null%
+1938%S%null%false%null%
+1937%P%null%false%null%
+1937%D%null%false%null%
+1937%S%null%false%null%
+1936%P%null%false%null%
+1936%D%null%false%null%
+1936%S%null%false%null%
+1935%P%null%false%null%
+1935%D%null%false%null%
+1935%S%null%false%null%
+1934%P%null%false%null%
+1934%D%null%false%null%
+1934%P%null%false%null%
+1934%D%null%false%null%
+1934%S%null%false%null%
+1932%P%null%false%null%
+1932%D%null%false%null%
+1932%S%null%false%null%
