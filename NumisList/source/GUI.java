@@ -9,8 +9,8 @@ import java.util.*;
 * GUI creates a graphical interface with five main operations
 *
 * @author  Christian Autor
-* @version 1.0
-* @since   5/28/2020
+* @version 1.1
+* @since   7/11/2020
 */
 public class GUI extends appActions
 {
@@ -747,11 +747,24 @@ public class GUI extends appActions
   }
 
 
-  /** Creates Export tab which exports selected file to export.txt file in a human readable format */
+  /** Creates Export tab which exports selected file(s) to export.txt file in a human readable format */
   public void export()
   {
     JPanel exportPanel = new JPanel();
     exportPanel.setBackground(colors[4]);
+
+    JButton exportAll = new JButton("Export All");
+    exportAll.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        fileClear("Data\\export.txt");
+        for(int i = 1; i<files.length; i++)
+        {
+          fileReadAll(files[i]);
+          fileExport("Data\\export.txt", denominations[i] + "", true);
+          currList.clear();
+        }
+      }
+    });
 
     JButton exportButton = new JButton("Export List");
     exportButton.addActionListener(new ActionListener() {
@@ -759,12 +772,13 @@ public class GUI extends appActions
         if(cb6.getSelectedIndex() != 0)
         {
            fileReadAll(files[cb6.getSelectedIndex()]);
-           fileExport("Data\\export.txt", cb6.getItemAt(cb6.getSelectedIndex()) + "");
+           fileExport("Data\\export.txt", cb6.getItemAt(cb6.getSelectedIndex()) + "", false);
            currList.clear();
         }
       }
     });
 
+    exportPanel.add(exportAll);
     exportPanel.add(exportButton);
     cb6 = new JComboBox(denominations);
     exportPanel.add(cb6);
