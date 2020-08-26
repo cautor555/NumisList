@@ -5,8 +5,8 @@ import java.util.*;
 * appActions is made up of file and list operation methods utilized by the GUI class.
 *
 * @author  Christian Autor
-* @version 1.0
-* @since   5/28/2020
+* @version 1.1
+* @since   7/11/2020
 */
 public class appActions
 {
@@ -82,11 +82,11 @@ public class appActions
     *   @param  fileName file to be written to
     *   @param  Denomination denomination of coins in fileName
     */
-    public static void fileExport(String fileName, String Denomination)
+    public static void fileExport(String fileName, String Denomination, boolean append)
     {
       try
       {
-        FileWriter fileWriter = new FileWriter(fileName);
+        FileWriter fileWriter = new FileWriter(fileName, append);
         PrintWriter output = new PrintWriter(fileWriter);
 
         output.print(Denomination + "\n\n");
@@ -99,6 +99,24 @@ public class appActions
             output.print("  -  " + currList.get(i).LPrintAll() + "\n");
         }
         output.close();
+      }
+      catch(IOException ex)
+      {
+        System.out.println("error");
+      }
+    }
+
+    /** Clears selected file
+    *   @param  fileName file to be written to
+    */
+    public static void fileClear(String fileName)
+    {
+      try
+      {
+        FileWriter fileWriter = new FileWriter(fileName, true);
+        PrintWriter output = new PrintWriter(fileWriter);
+
+        output.print("");
       }
       catch(IOException ex)
       {
