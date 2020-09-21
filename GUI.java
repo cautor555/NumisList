@@ -469,7 +469,10 @@ public class GUI extends appActions
             edit(coinIndex);
           }
           catch(Exception exc)
-          {   System.out.println("error");  }
+          {
+            //Create directory if one doesn't exist
+            new File("Data\\" + denominations[updateCB.getSelectedIndex()]).mkdirs();
+          }
        }
     });
 
