@@ -1,6 +1,6 @@
 NumisList version 2.1
 
-** v2.0 Changes UI theme using custom swing objects, default colors and icons
+** v2. Changes UI theme using custom swing objects, default colors and icons
 
 Thank you for using NumisList!
 
