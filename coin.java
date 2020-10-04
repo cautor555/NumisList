@@ -6,7 +6,7 @@ import java.util.*;
 * date, mint mark, condition, attributes, and if the coin is in the user's collection.
 *
 * @author  Christian Autor
-* @version 2.0
+* @version 2.1
 * @since   9/7/2020
 */
 public class coin implements Serializable

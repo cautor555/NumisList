@@ -4,10 +4,9 @@
 * to create a new app session.
 *
 * @author  Christian Autor
-* @version 1.0
-* @since   5/28/2020
+* @version 2.1
+* @since   9/7/2020
 */
-
 public class appMain
 {
 

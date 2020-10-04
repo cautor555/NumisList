@@ -5,7 +5,7 @@ import java.util.*;
 * appActions is made up of file and list operation methods utilized by the GUI class.
 *
 * @author  Christian Autor
-* @version 2.0
+* @version 2.1
 * @since   9/7/2020
 */
 public class appActions

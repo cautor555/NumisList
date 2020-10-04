@@ -11,24 +11,29 @@ import java.io.File;
 * GUI creates a graphical interface with four tabbed panes
 *
 * @author  Christian Autor
-* @version 2.0
-* @since   9/7/2020
+* @version 2.1
+* @since   10/4/2020
 */
 public class GUI extends appActions
 {
 
   /** Variable declaration */
 
-  private static JFrame mainFrame = new JFrame("NumisList");
-  private static JTabbedPane tp = new JTabbedPane();
-  private static Color colors[] = {new Color(222, 244, 222), new Color(255, 204, 204), new Color(200, 200, 234), new Color(255, 217, 168), new Color(255, 250, 193)};
+  private static JFrame mainFrame;
+  private static CustomJTabbedPane tp;
 
-  private static String files[] = {"Data\\Logo.png", "Data\\pennies.txt", "Data\\nickels.txt", "Data\\dimes.txt", "Data\\quarters.txt", "Data\\halves.txt", "Data\\dollars.txt"};
-  private static String denominations[] = {"Choose Denomination", "Pennies", "Nickles", "Dimes", "Quarters", "Half Dollars", "Dollars"};
+  private static Color backgroundColor = new Color(41, 47, 54);
+  private static Color primaryColor = new Color(0, 145, 110);
+  private static Color textColor = new Color(255, 250, 240);
+  private static Color highlightColor = new Color(255, 228, 133);
 
-  private static JComboBox updateCB, addCoinCB, exportCB;
+
+  private static String files[] = {"Data\\Logo.png", "Data\\cents.txt", "Data\\nickels.txt", "Data\\dimes.txt", "Data\\quarters.txt", "Data\\halves.txt", "Data\\dollars.txt"};
+  private static String denominations[] = {"Choose Denomination", "Cents", "Nickles", "Dimes", "Quarters", "Half Dollars", "Dollars"};
+
+  private static CustomJComboBox updateCB, addCoinCB, exportCB;
   private static JTextField addCoinDateTF, addCoinmMarkTF, editConditionTF, editAttributesTF;
-  private static JLabel addCoinDateLabel, addCoinmMarkLabel, editConditionLabel, editAttributesLabel;
+  private static CustomJLabel addCoinDateLabel, addCoinmMarkLabel, editConditionLabel, editAttributesLabel;
 
 
   /** GUI main method
@@ -36,13 +41,29 @@ public class GUI extends appActions
   *   calls methods to set up tabs in the JTabbed Pane
   */
   public GUI(){
+    mainFrame = new JFrame("NumisList");
     mainFrame.setLayout(new FlowLayout());
     mainFrame.setSize(500, 700);
     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     ImageIcon img = new ImageIcon(files[0]);
     mainFrame.setIconImage(img.getImage());
 
-    //Calls each method to create a new tab in the tabbed pane
+
+    UIManager.put("TabbedPane.contentAreaColor", primaryColor);
+    UIManager.put("TabbedPane.selected", primaryColor);
+
+    tp = new CustomJTabbedPane();
+
+
+    /* Recalculates number of coins in collection, needed, and total when home tab is selected */
+    tp.addChangeListener(new ChangeListener() {
+      public void stateChanged(ChangeEvent e) {
+        if(tp.getSelectedIndex() == 0)
+          homeHelper();
+      }
+    });
+
+
     home();
     updateCollection();
     addCoin();
@@ -54,9 +75,9 @@ public class GUI extends appActions
 
 
   private static JPanel homePanel;
-  private static JPanel homePannelArray[];
-  private static JLabel homeCoinLabels[];
-  private static JButton homeCoinButtons[];
+  private static JPanel homepanelarray[];
+  private static CustomJLabel homeCoinLabels[];
+  private static CustomJButton homeCoinButtons[];
   /** Displays each denomination with number of coins in collection, number of coins needed, and total number of coins
   *   Adds a button for each denomination which displays all coins when selected
   */
@@ -64,13 +85,13 @@ public class GUI extends appActions
   {
     //Creates homePanel with box layout
     homePanel = new JPanel();
-    homePanel.setBackground(colors[0]);
+    homePanel.setBackground(backgroundColor);
     homePanel.setLayout(new BoxLayout(homePanel, BoxLayout.Y_AXIS));
 
-    homePannelArray = new JPanel[12];
-    JButton homeCoinButtons[] = new JButton[denominations.length-1];
+    homepanelarray = new JPanel[12];
+    CustomJButton homeCoinButtons[] = new CustomJButton[denominations.length-1];
 
-    homeCoinLabels = new JLabel[denominations.length-1];
+    homeCoinLabels = new CustomJLabel[denominations.length-1];
 
     /* Generic JButton action listener for each denomination button
     *  Gets denomination and calls home redraw to display info
@@ -88,32 +109,26 @@ public class GUI extends appActions
     };
 
     //Create and add panels to homePanel
-    for(int i = 0; i<homePannelArray.length; i++)
+    for(int i = 0; i<homepanelarray.length; i++)
     {
-      homePannelArray[i] = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      homePannelArray[i].setBackground(colors[0]);
-      homePanel.add(homePannelArray[i]);
+      homepanelarray[i] = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      homepanelarray[i].setBackground(backgroundColor);
+      homePanel.add(homepanelarray[i]);
     }
 
     //Create calculate and add denomination buttons and labels
     for(int i = 0; i<denominations.length-1; i++)
     {
-      homeCoinLabels[i] = new JLabel();
-      homeCoinButtons[i] = new JButton(denominations[i+1]);
+      homeCoinLabels[i] = new CustomJLabel();
+
+      homeCoinButtons[i] = new CustomJButton(denominations[i+1]);
       homeCoinButtons[i].setPreferredSize(new Dimension(100, 30));
       homeCoinButtons[i].addActionListener(homeListener);
-      homePannelArray[i].add(new JLabel("  "));
-      homePannelArray[i].add(homeCoinButtons[i]);
-      homePannelArray[i].add(homeCoinLabels[i]);
-    }
 
-    /* Recalculates number of coins in collection, needed, and total when home tab is selected */
-    tp.addChangeListener(new ChangeListener() {
-      public void stateChanged(ChangeEvent e) {
-        if(tp.getSelectedIndex() == 0)
-          homeHelper();
-      }
-    });
+      homepanelarray[i].add(new JLabel("  "));
+      homepanelarray[i].add(homeCoinButtons[i]);
+      homepanelarray[i].add(homeCoinLabels[i]);
+    }
 
     tp.add("Home", homePanel);
   }
@@ -150,16 +165,17 @@ public class GUI extends appActions
   public void homeRedraw(int index)
   {
     //Remove pannel array from homePanel
-    for(int i = 0; i<homePannelArray.length; i++)
-      homePanel.remove(homePannelArray[i]);
+    for(int i = 0; i<homepanelarray.length; i++)
+      homePanel.remove(homepanelarray[i]);
     homePanel.revalidate();
     homePanel.repaint();
 
     homeExitPanel = new JPanel();
-    homeExitPanel.setBackground(colors[0]);
+    homeExitPanel.setBackground(backgroundColor);
 
     /** Action listener to reset homePanel */
-    JButton homeExit = new JButton("Back");
+    CustomJButton homeExit = new CustomJButton("Back");
+    homeExit.setPreferredSize(new Dimension(100, 30));
     homeExit.setAlignmentX(JButton.CENTER_ALIGNMENT);
     homeExit.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -168,8 +184,8 @@ public class GUI extends appActions
         homePanel.revalidate();
         homePanel.repaint();
 
-        for(int i = 0; i<homePannelArray.length; i++)
-          homePanel.add(homePannelArray[i]);
+        for(int i = 0; i<homepanelarray.length; i++)
+          homePanel.add(homepanelarray[i]);
       }
     });
 
@@ -182,15 +198,15 @@ public class GUI extends appActions
     //Set up for JScrollPane containing all coins in selected denomination
     Box homeBox = Box.createVerticalBox();
     homeScrlBx = new JScrollPane(homeBox);
-    homeScrlBx.getViewport().setBackground(colors[0]);
+    homeScrlBx.getViewport().setBackground(backgroundColor);
     homeScrlBx.getVerticalScrollBar().setUnitIncrement(20);
-    JLabel homeDispLabels[] = new JLabel[super.currList.size()];
+    CustomJLabel homeDispLabels[] = new CustomJLabel[super.currList.size()];
 
     //Initializes and adds labels for each coin in selected denomination
     //If a coin is in collection prepend it with a "+" otherwise prepend it with a "-"
     for(int i = 0; i<homeDispLabels.length; i++)
     {
-      homeDispLabels[i] = new JLabel();
+      homeDispLabels[i] = new CustomJLabel();
       if(super.currList.get(i).getinCollection())
         homeDispLabels[i].setText("  +  " + super.currList.get(i).LPrintAll());
       else
@@ -209,10 +225,10 @@ public class GUI extends appActions
 
   private static JPanel updatePanel;
   private static JPanel updatePanels[];
-  private static JCheckBox updateBoxes[];
-  private static JButton updateEditButton, updateSaveButton, updateCancelButton;
-  private static JButton updateButtons[];
-  private static JLabel updateCoinLabels[];
+  private static CustomJCheckBox updateBoxes[];
+  private static CustomJButton updateEditButton, updateSaveButton, updateCancelButton;
+  private static CustomJButton updateButtons[];
+  private static CustomJLabel updateCoinLabels[];
   private static Box updateBox;
   private static JScrollPane updateScrlBox;
   private static ActionListener updateListener;
@@ -225,16 +241,16 @@ public class GUI extends appActions
     //Creates update panel
     updatePanel = new JPanel();
     updatePanel.setPreferredSize(new Dimension(400, 600));
-    updatePanel.setBackground(colors[1]);
+    updatePanel.setBackground(backgroundColor);
 
     //Creates a box in a JScrollPane
     updateBox = Box.createVerticalBox();
     updateScrlBox = new JScrollPane(updateBox);
-    updateScrlBox.getViewport().setBackground(colors[1]);
+    updateScrlBox.getViewport().setBackground(backgroundColor);
     updateScrlBox.getVerticalScrollBar().setUnitIncrement(20);
 
     //Creates a JComboBox to display coin denominations
-    updateCB = new JComboBox(denominations);
+    updateCB = new CustomJComboBox(denominations);
     updatePanel.add(updateCB);
 
     /** Action listener triggered by choosing to edit a coin */
@@ -256,7 +272,7 @@ public class GUI extends appActions
     };
 
     /** Action listener for updateEditButton to edit a coin */
-    updateEditButton = new JButton("Click to Edit");
+    updateEditButton = new CustomJButton("Click to Edit");
     updateEditButton.addActionListener(new ActionListener() {
        public void actionPerformed(ActionEvent e) {
 
@@ -284,7 +300,7 @@ public class GUI extends appActions
 
 
     /** Action listener for updateSaveButton to save changes made by selecting or deselecting coins */
-    updateSaveButton = new JButton("Save Changes");
+    updateSaveButton = new CustomJButton("Save Changes");
     updateSaveButton.addActionListener(new ActionListener() {
        public void actionPerformed(ActionEvent e) {
 
@@ -324,7 +340,7 @@ public class GUI extends appActions
 
 
     /** Action listener for button to cancel changes and reset update pane */
-    updateCancelButton = new JButton("Cancel");
+    updateCancelButton = new CustomJButton("Cancel");
     updateCancelButton.addActionListener(new ActionListener() {
        public void actionPerformed(ActionEvent e) {
 
@@ -348,7 +364,7 @@ public class GUI extends appActions
 
 
   JPanel editPanel;
-  JButton deletePictureButtons[];
+  CustomJButton deletePictureButtons[];
   /** Sets up editPanel and allows user to add images, delete selected coin, or change attributes and condition of the selected coin
   *   @param  coinIndex coin selected to edit
   */
@@ -356,7 +372,7 @@ public class GUI extends appActions
   {
     //Creates editPanel with a box layout
     editPanel = new JPanel();
-    editPanel.setBackground(colors[1]);
+    editPanel.setBackground(backgroundColor);
     editPanel.setLayout(new BoxLayout(editPanel, BoxLayout.Y_AXIS));
     updatePanel.add(editPanel);
 
@@ -365,15 +381,15 @@ public class GUI extends appActions
     for(int k = 0; k<editPanels.length; k++)
     {
       editPanels[k] = new JPanel();
-      editPanels[k].setBackground(colors[1]);
+      editPanels[k].setBackground(backgroundColor);
       editPanel.add(editPanels[k]);
     }
 
-    JLabel coin = new JLabel(currList.get(coinIndex).getdate() + " " + currList.get(coinIndex).getmMark() + "  ");
+    CustomJLabel coin = new CustomJLabel(currList.get(coinIndex).getdate() + " " + currList.get(coinIndex).getmMark() + "  ");
     editPanels[1].add(coin);
 
     /** Button to save changes made to a coin */
-    JButton submit = new JButton("Save Changes");
+    CustomJButton submit = new CustomJButton("Save Changes");
     submit.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -397,7 +413,7 @@ public class GUI extends appActions
     });
 
     /** Button to cancel making changes to a coin */
-    JButton back = new JButton(" Back ");
+    CustomJButton back = new CustomJButton(" Back ");
     back.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -417,7 +433,7 @@ public class GUI extends appActions
     });
 
     /** Button to delete a coin from list */
-    JButton remove = new JButton("Delete");
+    CustomJButton remove = new CustomJButton("Delete");
     remove.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -439,7 +455,7 @@ public class GUI extends appActions
     });
 
     /** Button to add an image file to a coin */
-    JButton addPhoto = new JButton("Add Photo");
+    CustomJButton addPhoto = new CustomJButton("Add Photo");
     addPhoto.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -514,9 +530,9 @@ public class GUI extends appActions
     editPanels[2].add(addPhoto);
 
     editConditionTF = new JTextField(4);
-    editConditionLabel = new JLabel("Condition");
+    editConditionLabel = new CustomJLabel("Condition");
     editAttributesTF = new JTextField(10);
-    editAttributesLabel = new JLabel("Attributes");
+    editAttributesLabel = new CustomJLabel("Attributes");
 
     if(!(currList.get(coinIndex).getcondition().equals("null")))
       editConditionTF.setText(currList.get(coinIndex).getcondition());
@@ -532,13 +548,13 @@ public class GUI extends appActions
     //JScrollpane containing coin images
     Box imgBox = Box.createVerticalBox();
     JScrollPane imgScrlBx = new JScrollPane(imgBox);
-    imgScrlBx.getViewport().setBackground(colors[1]);
+    imgScrlBx.getViewport().setBackground(backgroundColor);
     imgScrlBx.getVerticalScrollBar().setUnitIncrement(20);
     imgScrlBx.setPreferredSize(new Dimension(400, 490));
 
     editPanels[3].add(imgScrlBx);
 
-    deletePictureButtons = new JButton[currList.get(coinIndex).images.size()];
+    deletePictureButtons = new CustomJButton[currList.get(coinIndex).images.size()];
 
     imgBox.add(new JLabel("\t\t\t\t"));
 
@@ -546,14 +562,14 @@ public class GUI extends appActions
     for(int k = 0; k<(currList.get(coinIndex).images.size()); k++)
     {
       ImageIcon imageIcon = new ImageIcon(new ImageIcon(currList.get(coinIndex).images.get(k)).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT));
-      JLabel label = new JLabel();
+      CustomJLabel label = new CustomJLabel();
       label.setIcon(imageIcon);
       label.setAlignmentX(JLabel.CENTER_ALIGNMENT);
       imgBox.add(label);
 
       imgBox.add(new JLabel("\t\t\t\t"));
 
-      deletePictureButtons[k] = new JButton("Remove Image");
+      deletePictureButtons[k] = new CustomJButton("Remove Image");
       deletePictureButtons[k].setAlignmentX(JLabel.CENTER_ALIGNMENT);
       deletePictureButtons[k].addActionListener(editListener);
       imgBox.add(deletePictureButtons[k]);
@@ -569,25 +585,26 @@ public class GUI extends appActions
   {
     //clears update box and redefines variables used in the update panel
     updateBox.removeAll();
-    updateBoxes = new JCheckBox[currList.size()];
-    updateButtons = new JButton[currList.size()];
+    updateBoxes = new CustomJCheckBox[currList.size()];
+    updateButtons = new CustomJButton[currList.size()];
     updatePanels = new JPanel[currList.size()];
-    updateCoinLabels = new JLabel[currList.size()];
+    updateCoinLabels = new CustomJLabel[currList.size()];
 
     for(int i = 0; i<currList.size(); i++)
     {
         updatePanels[i] = new JPanel();
 
-        updatePanels[i].setBackground(colors[1]);
+        updatePanels[i].setBackground(backgroundColor);
         updatePanels[i].setLayout(new FlowLayout(FlowLayout.LEFT));
-        updateBoxes[i] = new JCheckBox();
-        updateButtons[i] = new JButton("Edit");
+        updateBoxes[i] = new CustomJCheckBox();
+
+        updateButtons[i] = new CustomJButton("Edit");
         updateButtons[i].addActionListener(updateListener);
-        updateCoinLabels[i] = new JLabel(currList.get(i).LPrint());
+        updateCoinLabels[i] = new CustomJLabel(currList.get(i).LPrint());
 
         if(currList.get(i).getinCollection()) //If current coin is in collection set JCheckBox to true
           updateBoxes[i].setSelected(true);
-        updateBoxes[i].setBackground(colors[1]);
+        updateBoxes[i].setBackground(backgroundColor);
         updatePanels[i].add(updateBoxes[i]);
         updatePanels[i].add(updateButtons[i]);
         updatePanels[i].add(updateCoinLabels[i]);
@@ -604,23 +621,23 @@ public class GUI extends appActions
   {
     //Creates addCoinPanel with a box layout
     JPanel addCoinPanel = new JPanel();
-    addCoinPanel.setBackground(colors[2]);
+    addCoinPanel.setBackground(backgroundColor);
     addCoinPanel.setLayout(new BoxLayout(addCoinPanel, BoxLayout.Y_AXIS));
 
     JPanel addCoinPannels[] = new JPanel[14];
     for(int i = 0; i<addCoinPannels.length; i++)
     {
       addCoinPannels[i] = new JPanel();
-      addCoinPannels[i].setBackground(colors[2]);
+      addCoinPannels[i].setBackground(backgroundColor);
       addCoinPanel.add(addCoinPannels[i]);
     }
 
-    addCoinCB = new JComboBox(denominations);
+    addCoinCB = new CustomJComboBox(denominations);
 
     addCoinPannels[0].add(addCoinCB);
 
     /** Button to add a coin to collection */
-    JButton addCoinButton = new JButton("Add Coin");
+    CustomJButton addCoinButton = new CustomJButton("Add Coin");
     addCoinButton.addActionListener(new ActionListener() {
        public void actionPerformed(ActionEvent e) {
          //If input is valid add coin to list
@@ -640,9 +657,9 @@ public class GUI extends appActions
 
     addCoinPannels[1].add(addCoinButton);
 
-    addCoinDateLabel = new JLabel("Date");
+    addCoinDateLabel = new CustomJLabel("Date");
     addCoinDateTF = new JTextField(4);
-    addCoinmMarkLabel = new JLabel("Mint Mark");
+    addCoinmMarkLabel = new CustomJLabel("Mint Mark");
     addCoinmMarkTF = new JTextField(2);
 
     addCoinPannels[1].add(addCoinDateLabel);
@@ -672,10 +689,10 @@ public class GUI extends appActions
   public void export()
   {
     JPanel exportPanel = new JPanel();
-    exportPanel.setBackground(colors[4]);
+    exportPanel.setBackground(backgroundColor);
 
     /** Button to export all denominations */
-    JButton exportAllButton = new JButton("Export All");
+    CustomJButton exportAllButton = new CustomJButton("Export All");
     exportAllButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -692,7 +709,7 @@ public class GUI extends appActions
     });
 
     /** Button to export a specific denomination */
-    JButton exportButton = new JButton("Export List");
+    CustomJButton exportButton = new CustomJButton("Export List");
     exportButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
 
@@ -709,7 +726,7 @@ public class GUI extends appActions
     exportPanel.add(exportAllButton);
     exportPanel.add(exportButton);
 
-    exportCB = new JComboBox(denominations);
+    exportCB = new CustomJComboBox(denominations);
     exportPanel.add(exportCB);
 
     tp.add("Export", exportPanel);
