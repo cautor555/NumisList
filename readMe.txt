@@ -1,6 +1,6 @@
-NumisList version 2.0
+NumisList version 2.1
 
-** v2.0 integrates edit, removal, and photo functionality directly into the update collection panel as well as bug fixes and other updates
+** v2.0 Changes UI theme using custom swing objects, default colors and icons
 
 Thank you for using NumisList!
 
