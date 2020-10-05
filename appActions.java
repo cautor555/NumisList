@@ -5,8 +5,8 @@ import java.util.*;
 * appActions is made up of file and list operation methods utilized by the GUI class.
 *
 * @author  Christian Autor
-* @version 2.1
-* @since   9/7/2020
+* @version 2.1.1
+* @since   10/4/2020
 */
 public class appActions
 {
@@ -154,7 +154,7 @@ public class appActions
           k++;
 
         //Insert insertCoin if insertCoin has a lower priority mint mark than coin i in currlist
-        if(!(j>k))
+        if(!(j>=k))
           break;
         i++;
       }

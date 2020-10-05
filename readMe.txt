@@ -1,6 +1,6 @@
-NumisList version 2.1
+NumisList version 2.1.1
 
-** v2.1 Changes UI theme using custom swing objects, default colors and icons
+** v2.1.1 Fixes minor bug in appActions when coin is added
 
 Thank you for using NumisList!
 
